@@ -5,3 +5,4 @@ export interface MovieType {
   description: string; // <= (est-ce qu'il faut mettre description ici ?)
   poster_path: string;
 };
+
