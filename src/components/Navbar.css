@@ -1,0 +1,41 @@
+nav {
+  border: 1px solid black;
+  width: 300px;
+  padding:1em ;
+}
+
+.navbar__logo {
+  width: 40%;
+}
+
+nav ul {
+  list-style-type: none;
+  display : flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+nav .navbar__list li {
+  margin-right: 50px;
+}
+
+nav ul li button {
+  width: 100%;
+  padding: .5em;
+  font-size : 1.1rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .navbar__logo {
+    animation: Navbar-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes Navbar-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
