@@ -1,5 +1,6 @@
 import React from "react";
 import { CategoryType } from "../models/CategoryType";
+import "./Categories.css"
 
 type CategoriesProps = {
   CategoryList: CategoryType[];
@@ -7,11 +8,11 @@ type CategoriesProps = {
 
 export const Categories = ({ CategoryList }: CategoriesProps) => {
   return (
-    <div>
-      <h1>Categories</h1>
-      <ul>
+    <div className={"navbar__category--container"}>
+      <h3>Categories</h3>
+      <ul className={"navbar__category navbar__list"}>
         {CategoryList.map(category => (
-          <li key={category.id}>{category.name}</li>
+          <li className={"navbar__category--link"} key={category.id}><button onClick={()=>console.log(category.name)}>{category.name}</button></li>
         ))}
       </ul>
     </div>

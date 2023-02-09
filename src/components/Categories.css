@@ -1,0 +1,21 @@
+.navbar__category--container {
+  margin-top: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  display : flex;
+  flex-direction: column;
+  gap: 1em;
+  padding-block: 1em;
+}
+
+nav .navbar__list li {
+  margin-right: 50px;
+}
+
+nav ul li button {
+  width: 100%;
+  padding: .5em;
+  font-size : 1.1rem;
+}

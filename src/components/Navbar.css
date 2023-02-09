@@ -5,29 +5,12 @@ nav {
 }
 
 .navbar__logo {
-  width: 40%;
-}
-
-nav ul {
-  list-style-type: none;
-  display : flex;
-  flex-direction: column;
-  gap: 1em;
-}
-
-nav .navbar__list li {
-  margin-right: 50px;
-}
-
-nav ul li button {
-  width: 100%;
-  padding: .5em;
-  font-size : 1.1rem;
+  width: 80%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .navbar__logo {
-    animation: Navbar-logo-spin infinite 20s linear;
+    animation: Navbar-logo-spin infinite .3s linear;
   }
 }
 
