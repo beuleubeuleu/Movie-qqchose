@@ -1,3 +1,5 @@
+import { CategoryType } from "./CategoryType";
+
 export type  MovieType =
 {
   id: number;
@@ -6,5 +8,6 @@ export type  MovieType =
   poster_path: string;
   release_date: string | Date;
   overview: string;
-  genre: {name: string};
+  genre: CategoryType;
 }
+
