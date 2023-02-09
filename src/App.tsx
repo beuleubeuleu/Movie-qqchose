@@ -2,14 +2,14 @@ import React from 'react';
 import './App.css';
 import {MovieCard} from './components/MovieCard';
 import { Navbar } from "./components/Navbar";
-import {movieData} from './datas';
+import {movieData, CategoryList} from './datas';
 
 function App() {
   
   return (
     <div className="App">
       <header className="App-header">
-        <Navbar/>
+        <Navbar CategoryList={CategoryList}/>
       </header>
 
       <MovieCard movieData= {movieData[0]} />

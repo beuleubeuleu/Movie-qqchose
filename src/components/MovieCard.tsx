@@ -3,11 +3,11 @@ import './MovieCard.css';
 import { MovieType } from '../models/MovieType';
 
 
-type MovieProps = {
+type MovieCardProps = {
   movieData: MovieType;
 }
 
-export const MovieCard = ({movieData}: MovieProps) =>{
+export const MovieCard = ({movieData}: MovieCardProps) =>{
   return (
     <div className="movie-container">
       <div className="card-movie">
