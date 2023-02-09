@@ -1,8 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {Movie} from './components/Movie';
 import { MovieType } from './models/Movie';
+import { Navbar } from "./components/Navbar";
 
 function App() {
   // const film: MovieType = {
@@ -25,6 +25,7 @@ function App() {
         >
           Learn React
         </a> */}
+        <Navbar/>
       </header>
         {/* il faudra jouer avec l'API pour afficher le component movie */}
       {/* <Movie movie={movie_Key-API}/> */}
