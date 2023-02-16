@@ -1,25 +1,31 @@
-import React                       from "react";
+import React                                   from "react";
 import "./App.css";
-import { Navbar }                  from "./components/Navbar";
-import { movieData, CategoryList } from "./datas";
-import {MovieList}                 from "./components/MovieList";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Home }         from "./components/Home";
+import { CategoryList, movieData } from "./datas";
 
 const fetchMovies = (type: string) => {
   console.log(`fetching ${ type } movies`);
 }
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home categoryList={CategoryList} onclick={fetchMovies} data={movieData} />
+  }
+  /*{
+   path:'/movie/:id',
+   }*/
+])
 
 function App() {
 
   return (
       <div className="App">
-        <header className="App-header">
-          <Navbar categoryList={ CategoryList } onclick={ fetchMovies }/>
-        </header>
 
-      <MovieList data= {movieData} />
-      
-    </div>
+        <RouterProvider router={router}/>
+
+      </div>
   );
 }
 
