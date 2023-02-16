@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {MovieCard} from './components/MovieCard';
+import {MovieList} from './components/MovieList';
 import { Navbar } from "./components/Navbar";
 import {movieData, CategoryList} from './datas';
 
@@ -12,7 +12,7 @@ function App() {
         <Navbar CategoryList={CategoryList}/>
       </header>
 
-      <MovieCard movieData= {movieData[0]} />
+      <MovieList data= {movieData} />
       
     </div>
   );
