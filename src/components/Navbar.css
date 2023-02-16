@@ -1,6 +1,6 @@
 nav {
   border: 1px solid black;
-  width: 300px;
+  width: 250px;
   padding:1em ;
 }
 
@@ -10,7 +10,7 @@ nav {
 
 @media (prefers-reduced-motion: no-preference) {
   .navbar__logo {
-    animation: Navbar-logo-spin infinite .3s linear;
+    animation: Navbar-logo-spin infinite 10s linear;
   }
 }
 

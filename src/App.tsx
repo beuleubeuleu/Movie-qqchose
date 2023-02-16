@@ -8,6 +8,7 @@ const fetchMovies = (type: string) => {
   console.log(`fetching ${ type } movies`);
 }
 
+
 function App() {
 
   return (
@@ -18,7 +19,9 @@ function App() {
 
         <MovieCard movieData={ movieData[0] }/>
 
-      </div>
+      <MovieList data= {movieData} />
+      
+    </div>
   );
 }
 

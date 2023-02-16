@@ -9,13 +9,13 @@ type MovieCardProps = {
 
 export const MovieCard = ({movieData}: MovieCardProps) =>{
   return (
-    <div className="movie-container">
+    <li className="movie-container">
       <div className="card-movie">
         <img src={movieData.poster_path} alt="movie_poster" />
         <div className="movie-info">
           <h3>{movieData.title}</h3>
         </div>
       </div>
-    </div>
+    </li>
   );
 };
