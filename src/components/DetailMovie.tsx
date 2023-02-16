@@ -1,15 +1,17 @@
 import React from "react";
 import './DetailMovie.css';
 import { MovieType } from '../models/MovieType';
+import {useSearchParams} from 'react-router-dom';
 
-type DetailMovieProps = {
-  detailMovie: MovieType;
-}
-
-export const DetailMovie = ({detailMovie}: DetailMovieProps) => {
+export const DetailMovie = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const test = searchParams.get("id")
+  console.log(test);
+  
   return (
     <div className="detailMovie-container">
-      <div className="primary-detail">
+
+      {/* <div className="primary-detail">
         <img src={detailMovie.poster_path} alt="movie_poster" />
         <div className="detail-info">
         <h3>{detailMovie.title}</h3>
@@ -23,7 +25,7 @@ export const DetailMovie = ({detailMovie}: DetailMovieProps) => {
       <div className="resume-movie">
         <h3>Synopsis</h3>
         <p>{detailMovie.overview}</p>
-      </div>
+      </div> */}
     </div>
   )
 };
