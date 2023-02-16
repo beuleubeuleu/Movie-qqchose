@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d35fbb83-7996-476c-8436-e804357ff1b4" name="Changes" comment="feat add navbar component">
-      <change afterPath="$PROJECT_DIR$/src/components/Categories.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Categories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Categories.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MovieList.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MovieList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MovieCard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MovieCard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MovieCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MovieCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navbar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +21,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="TypeScript JSX File" />
         <option value="CSS File" />
       </list>
     </option>
@@ -61,7 +66,10 @@
       <workItem from="1675417985582" duration="8654000" />
       <workItem from="1675440322796" duration="287000" />
       <workItem from="1675765531844" duration="602000" />
-      <workItem from="1675931954202" duration="10437000" />
+      <workItem from="1675931954202" duration="10930000" />
+      <workItem from="1676044490669" duration="6000" />
+      <workItem from="1676546556677" duration="301000" />
+      <workItem from="1676553048956" duration="1405000" />
     </task>
     <task id="LOCAL-00001" summary="feat add navbar component">
       <created>1675424925092</created>
