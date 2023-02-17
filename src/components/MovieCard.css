@@ -2,9 +2,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 17%;
+  width: 190px;
   margin:  50px 45px;
   transition: transform 0.2s ease-in-out;
+}
+
+.card-movie {
+  color: #333;
+  text-decoration : none;
 }
 
 .movie-container:hover {
