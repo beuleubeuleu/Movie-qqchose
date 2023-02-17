@@ -1,0 +1,39 @@
+.detailMovie-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.info-movie {
+  /* border: 1px solid black; */
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 10px;
+}
+
+.primary-detail img {
+  height: 180px;
+  border-radius: 10px 10px 0 0;
+}
+
+.btn-back-movie {
+  border: 2px solid black;
+  height: 50px;
+  width: 100px;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 90%;
+  text-decoration: none;
+  text-align: center;
+  padding-top: 10px;
+  color: black;
+}
+
+.btn-back-movie:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
