@@ -1,31 +1,34 @@
 import React from "react";
 import './DetailMovie.css';
 import { MovieType } from '../models/MovieType';
-import {useSearchParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
+import { movieData } from "../datas";
 
 export const DetailMovie = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const test = searchParams.get("id")
-  console.log(test);
+  // const [searchParams, setSearchParams] = useSearchParams();
+  // const test = searchParams.get("id")
+  // console.log(test);
+  let {id} = useParams();
+  const oneMovie:MovieType = movieData[parseInt(id!)]
   
   return (
     <div className="detailMovie-container">
 
-      {/* <div className="primary-detail">
-        <img src={detailMovie.poster_path} alt="movie_poster" />
+      <div className="primary-detail">
+        <img src={oneMovie.poster_path} alt="movie_poster" />
         <div className="detail-info">
-        <h3>{detailMovie.title}</h3>
-        <p>{detailMovie.release_date.toString()}</p>
-        <p>{detailMovie.genre.name}</p>
-        <p>{detailMovie.vote_average}</p>
+        <h3>{oneMovie.title}</h3>
+        <p>{oneMovie.release_date.toString()}</p>
+        <p>{oneMovie.genre.name}</p>
+        <p>{oneMovie.vote_average}</p>
         </div>
       </div>
 
       <hr/>
       <div className="resume-movie">
         <h3>Synopsis</h3>
-        <p>{detailMovie.overview}</p>
-      </div> */}
+        <p>{oneMovie.overview}</p>
+      </div>
     </div>
   )
 };
