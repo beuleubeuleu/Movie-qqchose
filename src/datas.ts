@@ -1,5 +1,4 @@
-import {MovieType} from "./models/MovieType";
-
+/*
 
 const generateFakeDatabase = (numberOfMovies: number) => {
     let titre = "film numero "
@@ -18,15 +17,15 @@ const generateFakeDatabase = (numberOfMovies: number) => {
             poster_path: movie_cover,
             release_date: date,
             overview: overview,
-            genre: genre
+            genres: genre
         }
         arrayToStoreData.push(tempMovie)
     }
     return arrayToStoreData
   }
 
-  
-export const movieData: MovieType[] =   generateFakeDatabase(16);
+
+export const movieData: MovieType[] =   generateFakeDatabase(16);*/
 
 export const DiscoverList: string[] = ["Popular", "Top Rated", "Upcoming"]
 

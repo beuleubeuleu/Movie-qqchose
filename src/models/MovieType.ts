@@ -8,6 +8,6 @@ export type  MovieType =
   poster_path: string;
   release_date: string | Date;
   overview: string;
-  genre: CategoryType;
+  genres: CategoryType[];
 }
 
