@@ -14,3 +14,4 @@ export const MovieList = ({data}: MovieListProps) => {
       </ul>
   )
 }
+
