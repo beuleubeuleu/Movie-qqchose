@@ -4,16 +4,16 @@ import "./Categories.css"
 
 type DiscoverProps = {
   discoverList: string[]
-  onclick: (arg:string) => void;
+  onclickDiscover: (arg:string) => void;
 };
 
-export const Discover = ({ discoverList, onclick }: DiscoverProps) => {
+export const Discover = ({ discoverList, onclickDiscover }: DiscoverProps) => {
   return (
       <div className={"navbar__category--container"}>
-        <h3>Categories</h3>
+        <h3>Discover</h3>
         <ul className={"navbar__category navbar__list"}>
           {discoverList.map(category => (
-              <li className={"navbar__category--link"} key={discoverList.indexOf(category)}><NavbarBouton value={category} onclick={onclick}/></li>
+              <li className={"navbar__category--link"} key={discoverList.indexOf(category)}><NavbarBouton boutonText={category} value={category} onclick={onclickDiscover}/></li>
           ))}
         </ul>
       </div>

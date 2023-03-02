@@ -8,19 +8,20 @@ import { CategoryType } from "../models/CategoryType";
 type NavbarProps = {
   discoverList: string[]
   categoryList: CategoryType[],
-  onclick: (arg: string) => void
+  onclickDiscover: (arg: string) => void
+  onclickCategory:(arg: string) => void
 }
 
-export const Navbar = ({ discoverList, categoryList, onclick }: NavbarProps) => {
+export const Navbar = ({ discoverList, categoryList, onclickDiscover, onclickCategory }: NavbarProps) => {
   return (
 
       <nav>
         <img src={ logo } className="navbar__logo" alt="logo"/>
         <h1 className="app-title">Movie qqchose</h1>
 
-        <Discover discoverList={ discoverList } onclick={ onclick }/>
+        <Discover discoverList={ discoverList } onclickDiscover={ onclickDiscover }/>
 
-        <Categories categoryList={ categoryList } onclick={ onclick }/>
+        <Categories categoryList={ categoryList } onclickCategory={ onclickCategory }/>
       </nav>
   )
 }
