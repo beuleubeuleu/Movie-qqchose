@@ -2,22 +2,31 @@ import React, { useEffect, useState }          from "react";
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home }                                from "./components/Home";
-import { DiscoverList }             from "./datas";
+import { DiscoverList }                        from "./datas";
 import { DetailMovie }                         from "./components/DetailMovie";
 import axios                                   from "axios";
 import { CategoryType }                        from "./models/CategoryType";
-import { MovieType } from "./models/MovieType";
+import { MovieType }                           from "./models/MovieType";
 
 
 function App() {
   const [categoryList, setCategoryList] = useState<CategoryType[]>([]);
   const [movieList, setMovieList] = useState<MovieType[]>([]);
-  const fetchMovies = (type: string) => {
+  const fetchDiscoverMovies = (type: string) => {
     console.log(`fetching ${ type } movies`);
-    axios.get(`https://api.themoviedb.org/3/movie/${type.toLowerCase().split(' ').join('_')}?api_key=${process.env.REACT_APP_API_KEY}&language=fr-EU&page=1`)
-    .then((res) =>{
-      setMovieList(res.data.results);
-    });
+    axios.get(`https://api.themoviedb.org/3/movie/${ type.toLowerCase().split(" ")
+                                                         .join("_") }?api_key=${ process.env.REACT_APP_API_KEY }&language=fr-EU&page=1`)
+         .then((res) => {
+           setMovieList(res.data.results);
+         });
+  };
+  const fetchCategoryMovies = (type: string) => {
+
+        console.log(`fetching ${ type } movies`);
+    axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=fr-EU&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${type}`)
+         .then((res) => {
+           setMovieList(res.data.results);
+         });
   };
   //useEffect for fetching categories
   useEffect(() => {
@@ -34,7 +43,7 @@ function App() {
   useEffect(() => {
     axios
         .get(
-            `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_API_KEY}&language=fr-EU&page=1`
+            `https://api.themoviedb.org/3/movie/now_playing?api_key=${ process.env.REACT_APP_API_KEY }&language=fr-EU&page=1`
         )
         .then((res) => {
           setMovieList(res.data.results);
@@ -48,7 +57,8 @@ function App() {
           <Home
               discoverList={ DiscoverList }
               categoryList={ categoryList }
-              onclick={ fetchMovies }
+              onclickDiscover={ fetchDiscoverMovies }
+              onclickCategory={ fetchCategoryMovies }
               data={ movieList }
           />
       )
