@@ -2,10 +2,11 @@ import React, { useEffect, useState }          from "react";
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Home }                                from "./components/Home";
-import { movieData, DiscoverList }             from "./datas";
+import { DiscoverList }             from "./datas";
 import { DetailMovie }                         from "./components/DetailMovie";
 import axios                                   from "axios";
 import { CategoryType }                        from "./models/CategoryType";
+import { MovieType } from "./models/MovieType";
 
 const fetchMovies = (type: string) => {
   console.log(`fetching ${ type } movies`);
@@ -14,6 +15,8 @@ const fetchMovies = (type: string) => {
 
 function App() {
   const [categoryList, setCategoryList] = useState<CategoryType[]>([]);
+  const [movieList, setMovieList] = useState<MovieType[]>([]);
+  //useEffect for fetching categories
   useEffect(() => {
     axios
         .get<{ genres: CategoryType[] }>(
@@ -21,6 +24,17 @@ function App() {
         )
         .then((res) => {
           setCategoryList(res.data.genres);
+        });
+  }, []);
+
+  //useEffect for fetching home page movies
+  useEffect(() => {
+    axios
+        .get(
+            `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_API_KEY}&language=fr-EU&page=1`
+        )
+        .then((res) => {
+          setMovieList(res.data.results);
         });
   }, []);
 
@@ -32,7 +46,7 @@ function App() {
               discoverList={ DiscoverList }
               categoryList={ categoryList }
               onclick={ fetchMovies }
-              data={ movieData }
+              data={ movieList }
           />
       )
     },
