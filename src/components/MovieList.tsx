@@ -1,17 +1,18 @@
-import React         from 'react';
+import React from "react";
 import { MovieCard } from "./MovieCard";
-import { MovieType } from "../models/MovieType";
+import { MovieType } from "../types/MovieType";
 import "./MovieList.css";
 
 type MovieListProps = {
-  data: MovieType[]
-}
+  data: MovieType[];
+};
 
-export const MovieList = ({data}: MovieListProps) => {
+export const MovieList = ({ data }: MovieListProps) => {
   return (
-      <ul className={"movie-list"}>
-        { data.map((movie: MovieType) => <MovieCard movieData={ movie } key={ movie.id }/>) }
-      </ul>
-  )
-}
-
+    <ul className={"movie-list"}>
+      {data.map((movie: MovieType) => (
+        <MovieCard movieData={movie} key={movie.id} />
+      ))}
+    </ul>
+  );
+};
