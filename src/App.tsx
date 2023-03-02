@@ -8,19 +8,22 @@ import axios                                   from "axios";
 import { CategoryType }                        from "./models/CategoryType";
 import { MovieType } from "./models/MovieType";
 
-const fetchMovies = (type: string) => {
-  console.log(`fetching ${ type } movies`);
-};
-
 
 function App() {
   const [categoryList, setCategoryList] = useState<CategoryType[]>([]);
   const [movieList, setMovieList] = useState<MovieType[]>([]);
+  const fetchMovies = (type: string) => {
+    console.log(`fetching ${ type } movies`);
+    axios.get(`https://api.themoviedb.org/3/movie/${type.toLowerCase().split(' ').join('_')}?api_key=${process.env.REACT_APP_API_KEY}&language=fr-EU&page=1`)
+    .then((res) =>{
+      setMovieList(res.data.results);
+    });
+  };
   //useEffect for fetching categories
   useEffect(() => {
     axios
         .get<{ genres: CategoryType[] }>(
-            `https://api.themoviedb.org/3/genre/movie/list?api_key=${ process.env.REACT_APP_API_KEY }&language=en-US`
+            `https://api.themoviedb.org/3/genre/movie/list?api_key=${ process.env.REACT_APP_API_KEY }&language=fr-EU`
         )
         .then((res) => {
           setCategoryList(res.data.genres);
