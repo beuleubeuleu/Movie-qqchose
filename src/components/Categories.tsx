@@ -4,7 +4,7 @@ import { NavbarBouton } from "./NavbarBoutons";
 import "./Categories.css"
 
 type CategoriesProps = {
-  categoryList: CategoryType[];
+  categoryList: CategoryType[]
   onclick: (arg:string) => void;
 };
 

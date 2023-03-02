@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home } from "./components/Home";
-import { movieData } from "./datas";
+import { Home }         from "./components/Home";
+import { movieData, DiscoverList } from "./datas";
 import { DetailMovie } from "./components/DetailMovie";
 import axios from "axios";
 import { CategoryType } from "./models/CategoryType";
@@ -10,6 +10,7 @@ import { CategoryType } from "./models/CategoryType";
 const fetchMovies = (type: string) => {
   console.log(`fetching ${type} movies`);
 };
+
 
 function App() {
   const [categoryList, setCategoryList] = useState<CategoryType[]>([]);

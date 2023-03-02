@@ -2,4 +2,41 @@
   width: 100%;
   padding: .5em;
   font-size : 1.1rem;
+  position: relative;
+  border: none;
+  background : transparent;
+  cursor: pointer;
+}
+
+.navbar-bouton, .navbar-bouton:before, .navbar-bouton:after {
+  transition: all 300ms ease-out;
+}
+
+.navbar-bouton:before {
+  color: #333;
+  content: '[';
+  display: block;
+  font-size: 1.5em;
+  left: 30px;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+}
+.navbar-bouton:after {
+  color: #333;
+  content: ']';
+  display: block;
+  font-size: 1.5em;
+  opacity: 0;
+  position: absolute;
+  right: 30px;
+  top: 0;
+}
+.navbar-bouton:hover:before {
+  left: 15px;
+  opacity: 1;
+}
+.navbar-bouton:hover:after {
+  opacity: 1;
+  right: 15px;
 }

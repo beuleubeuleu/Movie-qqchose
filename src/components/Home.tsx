@@ -5,16 +5,17 @@ import { CategoryType }            from "../models/CategoryType";
 import { MovieType }               from "../models/MovieType";
 
 type HomeProps = {
+  discoverList: string[]
   categoryList: CategoryType[],
   onclick: (arg: string) => void,
   data: MovieType[]
 }
 
-export const Home = ({categoryList, onclick, data }: HomeProps) => {
+export const Home = ({discoverList,categoryList, onclick, data }: HomeProps) => {
   return (
       <div className="Home">
         <header className="App-header">
-          <Navbar categoryList={ categoryList } onclick={ onclick }/>
+          <Navbar discoverList={discoverList} categoryList={ categoryList } onclick={ onclick }/>
         </header>
 
         <MovieList data={ data }/>

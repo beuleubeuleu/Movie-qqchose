@@ -27,3 +27,6 @@ const generateFakeDatabase = (numberOfMovies: number) => {
 
   
 export const movieData: MovieType[] =   generateFakeDatabase(16);
+
+export const DiscoverList: string[] = ["Popular", "Top Rated", "Upcoming"]
+
