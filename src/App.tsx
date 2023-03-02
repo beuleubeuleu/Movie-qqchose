@@ -1,61 +1,47 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState }                                      from "react";
 import "./App.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home } from "./pages/Home";
-import { DiscoverList } from "./datas";
-import { DetailMovie } from "./pages/DetailMovie";
-import axios from "axios";
-import { CategoryType } from "./types/CategoryType";
-import { MovieType } from "./types/MovieType";
-import { getHomePageMovies } from './api/Movie';
+import { createBrowserRouter, RouterProvider }                             from "react-router-dom";
+import { Home }                                                            from "./pages/Home";
+import { DiscoverList }                                                    from "./datas";
+import { DetailMovie }                                                     from "./pages/DetailMovie";
+import { CategoryType }                                                    from "./types/CategoryType";
+import { MovieType }                                                       from "./types/MovieType";
+import { getMoviesByCategories, getMoviesByDiscover, getNowPlayingMovies } from './api/Movie';
+import { getCategories }                                                   from "./api/Categories";
 
 function App() {
   const [categoryList, setCategoryList] = useState<CategoryType[]>([]);
   const [movieList, setMovieList] = useState<MovieType[]>([]);
-  const fetchDiscoverMovies = (type: string) => {
-    console.log(`fetching ${type} movies`);
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${type
-          .toLowerCase()
-          .split(" ")
-          .join("_")}?api_key=${
-          process.env.REACT_APP_API_KEY
-        }&language=fr-EU&page=1`
-      )
-      .then((res) => {
-        setMovieList(res.data.results);
-      });
-  };
-  const fetchCategoryMovies = (type: string) => {
-    console.log(`fetching ${type} movies`);
-    axios
-      .get(
-        `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=fr-EU&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${type}`
-      )
-      .then((res) => {
-        setMovieList(res.data.results);
-      });
-  };
-  //useEffect for fetching categories
-  useEffect(() => {
-    axios
-      .get<{ genres: CategoryType[] }>(
-        `https://api.themoviedb.org/3/genre/movie/list?api_key=${process.env.REACT_APP_API_KEY}&language=fr-EU`
-      )
-      .then((res) => {
-        setCategoryList(res.data.genres);
-      });
-  }, []);
 
+  const getCategoryList = async () => {
+    const categories = await getCategories()
+    setCategoryList(categories)
+  }
   const getAllMovies = async () => {
-    const movies = await getHomePageMovies()
+    const movies = await getNowPlayingMovies()
     setMovieList(movies);
   }
-  //useEffect for fetching home page movies
+  const getDiscoverMovies = async (discover:string) => {
+    const movies = await getMoviesByDiscover(discover)
+    setMovieList(movies);
+  }
+  const getCategoryMovies = async (category:string) => {
+    const movies = await getMoviesByCategories(category)
+    setMovieList(movies);
+  }
+  //useEffect for fetching home page
   useEffect(() => {
     getAllMovies();
+    getCategoryList()
   }, []);
+
+  const fetchDiscoverMovies = (discover: string) => {
+    getDiscoverMovies(discover)
+  };
+  const fetchCategoryMovies = (category: string) => {
+    getCategoryMovies(category)
+  };
+
 
   const router = createBrowserRouter([
     {

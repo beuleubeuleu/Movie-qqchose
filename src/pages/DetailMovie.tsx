@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import "./DetailMovie.css";
-import { MovieType } from "../types/MovieType";
-import { useParams } from "react-router-dom";
-import axios from "axios";
+import { MovieType }                  from "../types/MovieType";
+import { useParams }                  from "react-router-dom";
+import { getMovieById }               from "../api/Movie";
 
 export const DetailMovie = () => {
   let { id } = useParams();
   const [oneMovie, setOneMovie] = useState<MovieType>();
 
+  const getOneMovie = async () => {
+    if (!id) return null;
+    const movie = await getMovieById(id)
+    setOneMovie(movie)
+  }
+
   useEffect(() => {
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=fr-EU&page=1`
-      )
-      .then((res) => {
-        setOneMovie(res.data);
-      });
+    getOneMovie()
   });
 
   if (!oneMovie) return null;
