@@ -1,14 +1,16 @@
-import React from "react";
-import { Navbar } from "../components/Navbar";
-import { MovieList } from "../components/MovieList";
+import React            from "react";
+import { Navbar }       from "../components/Navbar";
+import { MovieList }    from "../components/MovieList";
 import { CategoryType } from "../types/CategoryType";
-import { MovieType } from "../types/MovieType";
+import { MovieType }    from "../types/MovieType";
+import Searchbar        from "../components/Searchbar";
 
 type HomeProps = {
   discoverList: string[];
   categoryList: CategoryType[];
   onclickDiscover: (arg: string) => void;
   onclickCategory: (arg: string) => void;
+  onSubmitSearch: (arg: string) => void;
   data: MovieType[];
 };
 
@@ -17,20 +19,22 @@ export const Home = ({
   categoryList,
   onclickDiscover,
   onclickCategory,
-  data,
+  onSubmitSearch,
+  data
 }: HomeProps) => {
   return (
-    <div className="Home">
-      <header className="App-header">
-        <Navbar
-          discoverList={discoverList}
-          categoryList={categoryList}
-          onclickDiscover={onclickDiscover}
-          onclickCategory={onclickCategory}
-        />
-      </header>
+      <div className="Home">
+        <header className="App-header">
+          <Navbar
+              discoverList={ discoverList }
+              categoryList={ categoryList }
+              onclickDiscover={ onclickDiscover }
+              onclickCategory={ onclickCategory }
+          />
+        </header>
 
-      <MovieList data={data} />
-    </div>
+        <MovieList data={ data }/>
+        <Searchbar onSubmitSearch={onSubmitSearch} />
+      </div>
   );
 };
