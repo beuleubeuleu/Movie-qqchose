@@ -22,3 +22,8 @@ export const getMoviesByCategories = (category: string) => {
   return axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${ process.env.REACT_APP_API_KEY }&language=fr-EU&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${ category }`)
               .then((res) => res.data.results);
 }
+
+export const getMoviesBySearch = (query: string) => {
+  return axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${ process.env.REACT_APP_API_KEY }&query=${ query }&page=1`)
+              .then(res => res.data.results)
+}

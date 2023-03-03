@@ -5,9 +5,9 @@ import { Home }                                                            from 
 import { DiscoverList }                                                    from "./datas";
 import { DetailMovie }                                                     from "./pages/DetailMovie";
 import { CategoryType }                                                    from "./types/CategoryType";
-import { MovieType }                                                       from "./types/MovieType";
-import { getMoviesByCategories, getMoviesByDiscover, getNowPlayingMovies } from './api/Movie';
-import { getCategories }                                                   from "./api/Categories";
+import { MovieType }                                                                          from "./types/MovieType";
+import { getMoviesByCategories, getMoviesByDiscover, getMoviesBySearch, getNowPlayingMovies } from './api/Movie';
+import { getCategories }                                                                      from "./api/Categories";
 
 function App() {
   const [categoryList, setCategoryList] = useState<CategoryType[]>([]);
@@ -29,6 +29,10 @@ function App() {
     const movies = await getMoviesByCategories(category)
     setMovieList(movies);
   }
+  const getSearchMovies = async (search:string) => {
+    const movies = await getMoviesBySearch(search)
+    setMovieList(movies)
+  }
   //useEffect for fetching home page
   useEffect(() => {
     getAllMovies();
@@ -41,6 +45,9 @@ function App() {
   const fetchCategoryMovies = (category: string) => {
     getCategoryMovies(category)
   };
+  const fetchSearchedMovies = (search: string) => {
+    getSearchMovies(search)
+  }
 
 
   const router = createBrowserRouter([
@@ -52,6 +59,7 @@ function App() {
           categoryList={categoryList}
           onclickDiscover={fetchDiscoverMovies}
           onclickCategory={fetchCategoryMovies}
+          onSubmitSearch={fetchSearchedMovies}
           data={movieList}
         />
       ),
@@ -64,6 +72,7 @@ function App() {
 
   return (
     <div className="App">
+
       <RouterProvider router={router} />
     </div>
   );

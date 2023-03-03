@@ -13,7 +13,7 @@ export const MovieCard = ({ movieData }: MovieCardProps) => {
       <Link to={`/movie/${movieData.id}`} className="card-movie">
         <img
           src={"https://image.tmdb.org/t/p/original/" + movieData.poster_path}
-          alt="movie_poster"
+          alt={ "affiche non disponible pour le film " + movieData.title }
         />
         <div className="movie-info">
           <h3>{movieData.title}</h3>
