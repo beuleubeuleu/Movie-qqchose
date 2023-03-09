@@ -1,8 +1,8 @@
-import React                                     from "react";
+import React                                   from "react";
 import "./App.css";
-import { createBrowserRouter, RouterProvider }                             from "react-router-dom";
-import { Home }                                                            from "./pages/Home";
-import { DetailMovie }                                                     from "./pages/DetailMovie";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Home }                                from "./pages/Home";
+import { DetailMovie }                         from "./pages/DetailMovie";
 
 function App() {
 
@@ -10,20 +10,20 @@ function App() {
     {
       path: "/",
       element: (
-        <Home />
-      ),
+          <Home/>
+      )
     },
     {
       path: "/movie/:id",
-      element: <DetailMovie />,
-    },
+      element: <DetailMovie/>
+    }
   ]);
 
   return (
-    <div className="App">
+      <div className="App">
 
-      <RouterProvider router={router} />
-    </div>
+        <RouterProvider router={ router }/>
+      </div>
   );
 }
 
