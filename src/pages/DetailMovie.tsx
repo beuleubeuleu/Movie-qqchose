@@ -32,7 +32,7 @@ export const DetailMovie = () => {
               src={
                 "https://image.tmdb.org/t/p/original/" + oneMovie.poster_path
               }
-              alt="movie_poster"
+              alt={ "affiche non disponible pour le film " + oneMovie.title }
             />
           </div>
           <div className="detail-info">
